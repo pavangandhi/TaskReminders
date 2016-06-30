@@ -1,0 +1,3 @@
+target “TestAssignment2” do
+    pod 'IQDropDownTextField'
+end
