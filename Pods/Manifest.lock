@@ -1,0 +1,12 @@
+PODS:
+  - IQDropDownTextField (1.1.0)
+
+DEPENDENCIES:
+  - IQDropDownTextField
+
+SPEC CHECKSUMS:
+  IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
+
+PODFILE CHECKSUM: 682aecc406cfc4d0e134a36493acbfd9b5e4f1ef
+
+COCOAPODS: 1.0.1
