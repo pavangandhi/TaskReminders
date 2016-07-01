@@ -1,0 +1,168 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Bold;
+\f3\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red53\green53\blue53;\red26\green26\blue26;}
+\margl1440\margr1440\vieww20360\viewh11780\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f0\b\fs24 \cf2 \
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\fs26 \cf2 1) Pattern matching Program\
+
+\b0 \
+Write this pattern matching program in language which you prefer.\
+\
+Enter value : 4 (number of columns and rows)\
+\
+  0    1     2   3\
+11   12  13   4\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\b\fs24 \cf2 10   15   14   5\
+  9     8     7   6\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab560\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab560\pardirnatural\partightenfactor0
+\cf0 \
+\
+2)  iOS Demo application 
+\b0 \
+\
+1. create sign up form and call sign up api\
+login\
+-> username and password\
+\
+2. create login form and on button call login api.\
+signup\
+-> username, email, birthdate, password, profile pic\
+\
+3. After login, go to home page and make it as given screen shot.\
+\
+4. on Plus button click of home page show popup which contains the below details\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\b \cf2 Popup Details 
+\b0 \
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf2 \{\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 When Plus button press, it will pop up to the centre of the screen to display more info as below ::\
+\
+Due: Selection of time\
+	->15mins\
+	-> 30mins\
+	-> 1hr\
+	-> 2hr\
+\
+Task Details:\
+\
+Repeat: \
+	-> Daily\
+	-> weekly\
+	-> monthly\
+	-> 
+\b Custom (have scroller of Date,Time)
+\b0 \
+\
+Category	\
+	-> Work\
+	-> Shopping\
+\
+Reminder	\
+	-> Daily\
+	-> weekly\
+	-> monthly\
+	-> 
+\b Custom (have scroller of Date,Time)\
+\}\
+\
+-> list out  that added details from popup to home page as in screen shots formate.\
+\
+save data in sqlite or core data  \
+no api call for home page and adding reminder data and UI is given in screenshot for home page.\
+\
+For login and signup you can make your own UI and API call is listed above.\
+\
+\
+\pard\pardeftab720\sl369\partightenfactor0
+
+\f1\b0\fs26 \cf3 \expnd0\expndtw0\kerning0
+1   2   3   4   5   6   7   8   9   
+\f2\b 10
+\f1\b0 \
+36  37  38  39  40  41  42  43  44  11\
+35  64  65  66  67  68  69  70  45  12\
+34  63  84  85  86  87  88  71  46  13\
+33  62  83  96  97  98  89  72  47  14\
+32  61  82  95  
+\f2\b 100 
+\f1\b0 99  90  73  48  15\
+31  60  81  94  93  92  91  74  49  16\
+30  59  80  79  78  77  76  75  50  17\
+29  58  57  56  55  54  53  52  51  18\
+28  27  26  25  24  23  22  21  20  19\
+\pard\pardeftab720\sl369\partightenfactor0
+
+\f3 \cf3 \
+\
+\pard\pardeftab720\sl369\partightenfactor0
+
+\f1 \cf3 #include <stdio.h>\
+ \
+#define SIZE 4 //Size is always even\
+ \
+int main()\
+\{\
+    int i, j, N;\
+    int board[SIZE][SIZE];\
+    int left, top;\
+ \
+    left = 0;\
+    top  = SIZE - 1;\
+    N    = 1;\
+ \
+    for(i=1; i<=SIZE/2; i++, left++, top--)\
+    \{\
+        //Fill from left to right\
+        for(j=left; j<=top; j++, N++)\
+        \{\
+            board[left][j] = N;\
+        \}\
+ \
+        //Fills from top to down\
+        for(j=left+1; j<=top; j++, N++)\
+        \{\
+            board[j][top] = N;\
+        \}\
+ \
+        //Fills from right to left\
+        for(j=top-1; j>=left; j--, N++)\
+        \{\
+            board[top][j] = N;\
+        \}\
+ \
+        //Fills from down to top\
+        for(j=top-1; j>=left+1; j--, N++)\
+        \{\
+            board[j][left] = N;\
+        \}\
+    \}\
+ \
+    //Print the pattern\
+    for(i=0; i<SIZE; i++)\
+    \{\
+        for(j=0; j<SIZE; j++)\
+        \{\
+            printf("%-5d", board[i][j]);\
+        \}\
+        printf("\\n");\
+    \}\
+ \
+    return 0;\
+\}\
+}
